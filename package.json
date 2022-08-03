@@ -1,0 +1,37 @@
+{
+    "name": "quick-scripts",
+    "version": "0.0.0",
+    "private": true,
+    "description": "",
+    "keywords": [],
+    "homepage": "https://github.com/electrovir/quick-scripts",
+    "bugs": {
+        "url": "https://github.com/electrovir/quick-scripts/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/electrovir/quick-scripts"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "electrovir",
+        "url": "https://github.com/electrovir"
+    },
+    "scripts": {
+        "compile": "rm -rf dist && tsc --project tsconfig.json",
+        "docs:update": "virmator code-in-markdown",
+        "format": "virmator format write",
+        "prepublishOnly": "npm run compile && npm run test:full",
+        "spellcheck": "virmator spellcheck",
+        "start": "npm install && vite --force --config .virmator/vite/vite.config.ts",
+        "test": "virmator test",
+        "test:full": "npm run test:types && npm test && npm run spellcheck && virmator format check",
+        "test:types": "tsc --noEmit"
+    },
+    "dependencies": {
+        "augment-vir": "2.3.0"
+    },
+    "devDependencies": {
+        "virmator": "3.0.5"
+    }
+}
